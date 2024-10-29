@@ -1,0 +1,125 @@
+<DOCTYPE html>
+  <html lang="es">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>ClosetWhite</title>
+      <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+      <div class="container">
+        <h1>ClosetWhite</h1>
+        <div id="auth-container">
+          <button onclick="showRegister()">Crear Cuenta</button>
+          <button onclick="showLogin()">Iniciar Sesión</button>
+        </div>
+
+        <div id="register" class="hidden">
+          <h2>Registro</h2>
+          <form id="register-form" onsubmit="register(event)">
+            <input
+              type="text"
+              id="name"
+              placeholder="Nombre o tienda"
+              required
+            />
+            <input
+              type="email"
+              id="email"
+              placeholder="Correo electrónico"
+              required
+            />
+            <input
+              type="tel"
+              id="phone"
+              placeholder="Número de teléfono"
+              required
+            />
+            <input type="text" id="username" placeholder="Usuario" required />
+            <input
+              type="password"
+              id="password"
+              placeholder="Contraseña"
+              required
+            />
+            <select id="userType" required>
+              <option value="">Selecciona tipo de usuario</option>
+              <option value="buyer">Comprador</option>
+              <option value="seller">Vendedor</option>
+            </select>
+            <button type="submit">Registrar</button>
+          </form>
+          <button onclick="showLogin()">Volver al inicio</button>
+        </div>
+
+        <div id="login" class="hidden">
+          <h2>Iniciar Sesión</h2>
+          <form id="login-form" onsubmit="login(event)">
+            <input
+              type="email"
+              id="login-email"
+              placeholder="Correo electrónico"
+              required
+            />
+            <input
+              type="password"
+              id="login-password"
+              placeholder="Contraseña"
+              required
+            />
+            <button type="submit">Entrar</button>
+          </form>
+          <button onclick="showRegister()">Crear cuenta</button>
+        </div>
+
+        <!-- Interfaz de Comprador -->
+        <div id="buyer-interface" class="hidden">
+          <h2>Catálogo de Productos</h2>
+          <div id="catalog-list"></div>
+          <div id="product-detail" class="hidden"></div>
+          <div id="order-status" class="hidden"></div>
+          <button onclick="logout()">Cerrar Sesión</button>
+          <button onclick="showLogin()">Regresar al inicio</button>
+        </div>
+
+        <!-- Interfaz de Vendedor -->
+        <div id="seller-interface" class="hidden">
+          <h2>Mi Tienda</h2>
+          <button onclick="showAddProduct()">Agregar Producto</button>
+          <h3>Productos Subidos</h3>
+          <div id="product-list"></div>
+          <h3>Lista de Pedidos</h3>
+          <div id="order-list"></div>
+          <h3>Calificaciones</h3>
+          <div id="ratings-list"></div>
+          <h3>Chat con Compradores</h3>
+          <div id="chat-window">
+            <p>No hay mensajes aún.</p>
+          </div>
+          <button onclick="logout()">Cerrar Sesión</button>
+          <button onclick="showLogin()">Regresar al inicio</button>
+
+          <!-- Formulario para agregar producto -->
+          <div id="add-product-form" class="hidden">
+            <h4>Agregar Producto</h4>
+            <input
+              type="text"
+              id="product-name"
+              placeholder="Nombre del Producto"
+              required
+            />
+            <input
+              type="number"
+              id="product-price"
+              placeholder="Precio (S/)"
+              required
+            />
+            <input type="file" id="product-image" accept="image/*" required />
+            <button onclick="addProduct()">Subir Producto</button>
+            <button onclick="hideAddProduct()">Cancelar</button>
+          </div>
+        </div>
+      </div>
+      <script src="app.js"></script>
+    </body></html
+></DOCTYPE>
